@@ -120,9 +120,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""id"": ""5f7456a6-c40d-43f7-b3f0-2bb38a3c64b7"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""LightSpell"",
                     ""type"": ""Button"",
                     ""id"": ""85986b64-78e0-4454-8674-ac6f7d5a4698"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WaterSpell"",
+                    ""type"": ""Button"",
+                    ""id"": ""203fc03f-2671-4859-887c-f920029ae8b3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -133,11 +142,22 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1061cfb7-67c8-4104-b06f-071c5e293c2b"",
-                    ""path"": """",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""LightSpell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""70acdc31-d488-41ab-8f13-b99072ea0d47"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WaterSpell"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -152,7 +172,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Movement_TestMethod = m_Movement.FindAction("TestMethod", throwIfNotFound: true);
         // Combat
         m_Combat = asset.FindActionMap("Combat", throwIfNotFound: true);
-        m_Combat_Newaction = m_Combat.FindAction("New action", throwIfNotFound: true);
+        m_Combat_LightSpell = m_Combat.FindAction("LightSpell", throwIfNotFound: true);
+        m_Combat_WaterSpell = m_Combat.FindAction("WaterSpell", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -268,12 +289,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     // Combat
     private readonly InputActionMap m_Combat;
     private List<ICombatActions> m_CombatActionsCallbackInterfaces = new List<ICombatActions>();
-    private readonly InputAction m_Combat_Newaction;
+    private readonly InputAction m_Combat_LightSpell;
+    private readonly InputAction m_Combat_WaterSpell;
     public struct CombatActions
     {
         private @PlayerControls m_Wrapper;
         public CombatActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Combat_Newaction;
+        public InputAction @LightSpell => m_Wrapper.m_Combat_LightSpell;
+        public InputAction @WaterSpell => m_Wrapper.m_Combat_WaterSpell;
         public InputActionMap Get() { return m_Wrapper.m_Combat; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -283,16 +306,22 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_CombatActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_CombatActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
+            @LightSpell.started += instance.OnLightSpell;
+            @LightSpell.performed += instance.OnLightSpell;
+            @LightSpell.canceled += instance.OnLightSpell;
+            @WaterSpell.started += instance.OnWaterSpell;
+            @WaterSpell.performed += instance.OnWaterSpell;
+            @WaterSpell.canceled += instance.OnWaterSpell;
         }
 
         private void UnregisterCallbacks(ICombatActions instance)
         {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
+            @LightSpell.started -= instance.OnLightSpell;
+            @LightSpell.performed -= instance.OnLightSpell;
+            @LightSpell.canceled -= instance.OnLightSpell;
+            @WaterSpell.started -= instance.OnWaterSpell;
+            @WaterSpell.performed -= instance.OnWaterSpell;
+            @WaterSpell.canceled -= instance.OnWaterSpell;
         }
 
         public void RemoveCallbacks(ICombatActions instance)
@@ -317,6 +346,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     }
     public interface ICombatActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnLightSpell(InputAction.CallbackContext context);
+        void OnWaterSpell(InputAction.CallbackContext context);
     }
 }

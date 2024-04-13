@@ -29,12 +29,16 @@ public class EnemyManager : Singleton<EnemyManager>
     {
         activeEnemies = new List<GameObject>();
         player = PlayerMovement.Instance.gameObject;
-        Debug.Log(player.name);
         NewWave();
     }
 
     private void NewWave()
     {
+        if (currentWave >= waves.Count)
+        {
+            Debug.Log("You won the game!");
+            return;
+        }
         WaveInformation wave = waves[currentWave];
         for (int i = 0; i < wave.enemyCount; i++)
         {

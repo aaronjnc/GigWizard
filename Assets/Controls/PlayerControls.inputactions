@@ -98,9 +98,18 @@
             "id": "5f7456a6-c40d-43f7-b3f0-2bb38a3c64b7",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "LightSpell",
                     "type": "Button",
                     "id": "85986b64-78e0-4454-8674-ac6f7d5a4698",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "WaterSpell",
+                    "type": "Button",
+                    "id": "203fc03f-2671-4859-887c-f920029ae8b3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -111,11 +120,22 @@
                 {
                     "name": "",
                     "id": "1061cfb7-67c8-4104-b06f-071c5e293c2b",
-                    "path": "",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "LightSpell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "70acdc31-d488-41ab-8f13-b99072ea0d47",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WaterSpell",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

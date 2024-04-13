@@ -8,7 +8,6 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     private NavMeshAgent agent;
-    private Rigidbody rb;
     private MovementAnimator animator;
     [SerializeField]
     private float enemySpeed;
