@@ -29,6 +29,7 @@ public class EnemyManager : Singleton<EnemyManager>
     {
         activeEnemies = new List<GameObject>();
         player = PlayerMovement.Instance.gameObject;
+        Debug.Log(player.name);
         NewWave();
     }
 
@@ -39,12 +40,6 @@ public class EnemyManager : Singleton<EnemyManager>
         {
             int randEnemy = UnityEngine.Random.Range(0, wave.enemyPrefabs.Length - 1);
             GameObject newEnemy = Instantiate(wave.enemyPrefabs[randEnemy], GameManager.Instance.GetSpawnLocation(), Quaternion.identity);
-            EnemyMovement enemyMovement = newEnemy.GetComponent<EnemyMovement>();
-            if (enemyMovement)
-            {
-                Debug.Log("Valid enemy");
-            }
-            enemyMovement.MoveTo(player);
             activeEnemies.Add(newEnemy);
         }
     }

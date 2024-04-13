@@ -9,7 +9,6 @@ public class EnemyMovement : MonoBehaviour
 {
     private NavMeshAgent agent;
     private Rigidbody rb;
-    private PlayerMovement playerMovement;
     [SerializeField]
     private float enemySpeed;
     [SerializeField]
@@ -18,22 +17,21 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerMovement = PlayerMovement.Instance;
         agent = GetComponent<NavMeshAgent>();
         agent.stoppingDistance = enemyMinDistance;
         agent.speed = enemySpeed;
-        MoveTo(playerMovement.gameObject);
+        MoveTo(PlayerMovement.Instance.gameObject);
     }
 
     public void MoveTo(GameObject target)
     {
         enemyTarget = target;
-        agent.SetDestination(target.transform.position);
+        agent.SetDestination(enemyTarget.transform.position);
     }
 
     private void FixedUpdate()
     {
-        if (enemyTarget.transform.position != agent.destination)
+        if (enemyTarget && enemyTarget.transform.position != agent.destination)
         {
             agent.SetDestination(enemyTarget.transform.position);
         }
