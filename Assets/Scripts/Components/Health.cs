@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteFlash))]
 public class Health : MonoBehaviour
 {
     [SerializeField]
@@ -16,6 +17,8 @@ public class Health : MonoBehaviour
     private float damageCooldown;
 
     bool bIsOnCooldown = false;
+
+    private SpriteFlash flashScript;
 
     private float CurrentHealth {
         get
@@ -34,6 +37,7 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         CurrentHealth = maxHealth;
+        flashScript = GetComponent<SpriteFlash>();
     }
 
     public void DealDamage(float damage)
@@ -41,6 +45,7 @@ public class Health : MonoBehaviour
         if (!bIsOnCooldown)
         {
             CurrentHealth -= damage;
+            flashScript.StartFlashCoroutine(new UnityEngine.InputSystem.InputAction.CallbackContext());
             StartCoroutine(Cooldown());
         }
     }
