@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "TestMethod",
+                    "type": "Button",
+                    "id": "f1db5a22-88c1-4180-8664-0cfad6c5bb76",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -70,6 +79,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "2ac6c8aa-bba0-4caf-8ddf-75960004eeed",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TestMethod",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
