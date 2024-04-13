@@ -4,7 +4,7 @@ using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Singleton<PlayerMovement>
 {
     private Rigidbody rb;
     private PlayerControls controls;
