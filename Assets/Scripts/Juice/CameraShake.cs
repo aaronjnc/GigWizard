@@ -4,7 +4,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class CameraShake : MonoBehaviour
 {
-    private PlayerControls controls;
+    private PlayerControls _controls;
 
     // CHOI NOTE: The two fields that follow assume the camera is a child of the player sprite and defaults to local 
     // coodinates (0, 0) relative to the player.
@@ -61,9 +61,9 @@ public class CameraShake : MonoBehaviour
     {
         _originalCameraPosition = Camera.main.transform.position;
         _originalCameraRotation = Camera.main.transform.rotation.y; // assumes we look along the y-axis
-        controls = new PlayerControls();
-        controls.Movement.TestMethod.started += AddTrauma;
-        controls.Movement.TestMethod.Enable();
+        // _controls = new PlayerControls();
+        // _controls.Movement.TestMethod.started += AddTrauma;
+        // _controls.Movement.TestMethod.Enable();
     }
 
     // Update is called once per frame
