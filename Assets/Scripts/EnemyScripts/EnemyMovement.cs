@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour
 {
     private NavMeshAgent agent;
     private Rigidbody rb;
+    private MovementAnimator animator;
     [SerializeField]
     private float enemySpeed;
     [SerializeField]
@@ -18,8 +19,10 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<MovementAnimator>();
         agent.stoppingDistance = enemyMinDistance;
         agent.speed = enemySpeed;
+        agent.updateRotation = false;
         MoveTo(PlayerMovement.Instance.gameObject);
     }
 
@@ -34,6 +37,14 @@ public class EnemyMovement : MonoBehaviour
         if (enemyTarget && enemyTarget.transform.position != agent.destination)
         {
             agent.SetDestination(enemyTarget.transform.position);
+        }
+        if (agent.velocity.x < 0)
+        {
+            animator.Move(DirectionEnum.Left);
+        }
+        else
+        {
+            animator.Move(DirectionEnum.Right);
         }
     }
 }

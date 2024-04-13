@@ -24,6 +24,7 @@ public struct SpriteStruct
 [RequireComponent(typeof(Animator))]
 public class MovementAnimator : MonoBehaviour
 {
+    [SerializeField]
     private DirectionEnum currentDirection = DirectionEnum.Down;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
@@ -35,6 +36,10 @@ public class MovementAnimator : MonoBehaviour
 
     void Start()
     {
+        if (animator != null)
+        {
+            return;
+        }
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         foreach (SpriteStruct spriteStruct in sprites)
@@ -48,14 +53,26 @@ public class MovementAnimator : MonoBehaviour
 
     public void Move(DirectionEnum direction)
     {
+        if (animator == null)
+        {
+            Start();
+        }
         animator.enabled = true;
         if (direction == currentDirection)
         {
             return;
         }
         currentDirection = direction;
-        spriteRenderer.sprite = directionalSprites[currentDirection].baseDirectionSprite;
-        animator.runtimeAnimatorController = directionalSprites[currentDirection].controller;
+        if (directionalSprites.ContainsKey(direction))
+        {
+            spriteRenderer.flipX = false;
+            spriteRenderer.sprite = directionalSprites[currentDirection].baseDirectionSprite;
+            animator.runtimeAnimatorController = directionalSprites[currentDirection].controller;
+        }
+        else
+        {
+            spriteRenderer.flipX = true;
+        }
     }
 
     public void StopMove()
