@@ -12,6 +12,11 @@ public class Mana : MonoBehaviour
 
     private float currentMana;
 
+    [SerializeField]
+    private float manaRecoverySpeed;
+
+    bool bRecovering = false;
+
     private float CurrentMana {
         get
         {
@@ -31,13 +36,35 @@ public class Mana : MonoBehaviour
         CurrentMana = maxMana;
     }
 
-    public void DealDamage(float damage)
+    public bool HasEnoughMana(float manaCost)
     {
-        CurrentMana -= damage;
+        return currentMana >= manaCost;
     }
 
-    public void Heal(float amount)
+    public void SpendMana(float manaCost)
+    {
+        CurrentMana -= manaCost;
+        if (!bRecovering)
+        {
+            bRecovering = true;
+            StartCoroutine(RecoverMana());
+        }
+    }
+
+    public void RegainMana(float amount)
     {
         CurrentMana = Mathf.Max(currentMana + amount, maxMana);
+    }
+
+    IEnumerator RecoverMana()
+    {
+        yield return new WaitForSeconds(manaRecoverySpeed);
+        RegainMana(0.5f);
+        bRecovering = false;
+        if (CurrentMana < maxMana)
+        {
+            bRecovering = true;
+            StartCoroutine(RecoverMana());
+        }
     }
 }
