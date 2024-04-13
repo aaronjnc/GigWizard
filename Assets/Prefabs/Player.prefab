@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 1874226305105844299}
   - component: {fileID: 411754052869634910}
   - component: {fileID: 2784417608151006480}
+  - component: {fileID: 5830913598861115782}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -232,3 +233,18 @@ MonoBehaviour:
   playerSpeed: 5
   cameraSpeed: 5
   cameraMinDistance: 0.05
+--- !u!114 &5830913598861115782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912576235362198063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa43715e3f6d4b06848798e8722ee39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 2273902303395933180}
+  _flashMaterial: {fileID: 2100000, guid: d0874a589f6fd4b94b574a11ebe8e55a, type: 2}
+  _flashDuration: 0.25
