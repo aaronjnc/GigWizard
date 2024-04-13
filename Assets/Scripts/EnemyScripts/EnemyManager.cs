@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
-struct WaveInformation
+[Serializable]
+public struct WaveInformation
 {
     public int waveNumber;
     public int enemyCount;
