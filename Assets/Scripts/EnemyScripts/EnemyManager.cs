@@ -29,7 +29,6 @@ public class EnemyManager : Singleton<EnemyManager>
     {
         activeEnemies = new List<GameObject>();
         player = PlayerMovement.Instance.gameObject;
-        Debug.Log(player.name);
         NewWave();
     }
 
