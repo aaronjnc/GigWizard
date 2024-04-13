@@ -1,9 +1,10 @@
+using UnityEditor.EditorTools;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
 public class CameraShake : MonoBehaviour
 {
-    private PlayerControls controls;
+    private PlayerControls _controls;
 
     // CHOI NOTE: The two fields that follow assume the camera is a child of the player sprite and defaults to local 
     // coodinates (0, 0) relative to the player.
@@ -12,8 +13,17 @@ public class CameraShake : MonoBehaviour
 
     // CHOI NOTE: Because we are using Unity AI, the axis along which we view the world in-game is the y-axis.
     private Vector3 _lookAlongAxis = Vector3.up;
+
+    [Tooltip("Maximum angle (in degrees) at which the camera rotates when shaking.")]
+    [Range(0f, 45f)]
     [SerializeField] private float _maxShakeAngle;
+
+    [Tooltip("Maximum distance at which the camera translates when shaking.")]
+    [Range(0f, 5f)]
     [SerializeField] private float _maxShakeOffset;
+
+    [Tooltip("The rate at which to decrement trauma per frame.")]
+    [Range(0.01f, 2f)]
     [SerializeField] private float _traumaDecrementFactor;
     public float trauma = 0f;
 
@@ -51,9 +61,9 @@ public class CameraShake : MonoBehaviour
     {
         _originalCameraPosition = Camera.main.transform.position;
         _originalCameraRotation = Camera.main.transform.rotation.y; // assumes we look along the y-axis
-        controls = new PlayerControls();
-        controls.Movement.TestMethod.started += AddTrauma;
-        controls.Movement.TestMethod.Enable();
+        // _controls = new PlayerControls();
+        // _controls.Movement.TestMethod.started += AddTrauma;
+        // _controls.Movement.TestMethod.Enable();
     }
 
     // Update is called once per frame
@@ -62,7 +72,7 @@ public class CameraShake : MonoBehaviour
         if (trauma > 0f)
         {
             ShakeCamera();
-            trauma -= _traumaDecrementFactor;
+            trauma -= _traumaDecrementFactor * Time.deltaTime;
         }
         else
         {
