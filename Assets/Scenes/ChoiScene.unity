@@ -650,8 +650,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxShakeAngle: 20
-  _maxShakeOffset: 0
-  _traumaDecrementFactor: 0.01
+  _maxShakeOffset: 2
+  _traumaDecrementFactor: 0.001
   trauma: 0
 --- !u!1 &1024615208
 GameObject:
