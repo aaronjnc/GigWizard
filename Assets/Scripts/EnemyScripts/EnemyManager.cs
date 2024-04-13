@@ -29,6 +29,7 @@ public class EnemyManager : Singleton<EnemyManager>
     {
         activeEnemies = new List<GameObject>();
         player = PlayerMovement.Instance.gameObject;
+        NewWave();
     }
 
     private void NewWave()
@@ -36,8 +37,14 @@ public class EnemyManager : Singleton<EnemyManager>
         WaveInformation wave = waves[currentWave];
         for (int i = 0; i < wave.enemyCount; i++)
         {
-            GameObject newEnemy = Instantiate(wave.enemyPrefabs[UnityEngine.Random.Range(0, wave.enemyPrefabs.Length - 1)]);
-            newEnemy.GetComponent<EnemyMovement>().MoveTo(player);
+            int randEnemy = UnityEngine.Random.Range(0, wave.enemyPrefabs.Length - 1);
+            GameObject newEnemy = Instantiate(wave.enemyPrefabs[randEnemy], GameManager.Instance.GetSpawnLocation(), Quaternion.identity);
+            EnemyMovement enemyMovement = newEnemy.GetComponent<EnemyMovement>();
+            if (enemyMovement)
+            {
+                Debug.Log("Valid enemy");
+            }
+            enemyMovement.MoveTo(player);
             activeEnemies.Add(newEnemy);
         }
     }

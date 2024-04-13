@@ -20,7 +20,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
     private Vector2 moveDir;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Awake()
     {
         cam = Camera.main;
         rb = GetComponent<Rigidbody>();
