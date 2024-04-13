@@ -1,3 +1,4 @@
+using UnityEditor.EditorTools;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
@@ -12,8 +13,17 @@ public class CameraShake : MonoBehaviour
 
     // CHOI NOTE: Because we are using Unity AI, the axis along which we view the world in-game is the y-axis.
     private Vector3 _lookAlongAxis = Vector3.up;
+
+    [Tooltip("Maximum angle (in degrees) at which the camera rotates when shaking.")]
+    [Range(0f, 45f)]
     [SerializeField] private float _maxShakeAngle;
+
+    [Tooltip("Maximum distance at which the camera translates when shaking.")]
+    [Range(0f, 5f)]
     [SerializeField] private float _maxShakeOffset;
+
+    [Tooltip("The rate at which to decrement trauma per frame.")]
+    [Range(0.01f, 2f)]
     [SerializeField] private float _traumaDecrementFactor;
     public float trauma = 0f;
 
@@ -62,7 +72,7 @@ public class CameraShake : MonoBehaviour
         if (trauma > 0f)
         {
             ShakeCamera();
-            trauma -= _traumaDecrementFactor;
+            trauma -= _traumaDecrementFactor * Time.deltaTime;
         }
         else
         {
