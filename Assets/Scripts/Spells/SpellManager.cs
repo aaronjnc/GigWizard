@@ -30,8 +30,11 @@ public class SpellManager : MonoBehaviour
     private List<int> visibleSpells = new List<int>(); //1 is currently selected spell
     private List<int> spellCooldowns = new List<int>();
 
+    private CharacterAnimator characterAnimator;
+
     private void Awake()
     {
+        characterAnimator = transform.parent.GetComponentInChildren<CharacterAnimator>();
         manaComponent = GetComponent<Mana>();
         controls = new PlayerControls();
         controls.Combat.CastSpell.started += CastSpell;
@@ -49,6 +52,7 @@ public class SpellManager : MonoBehaviour
     {
         if (!spellCooldowns.Contains(visibleSpells[1]) && manaComponent.HasEnoughMana(spellOptions[visibleSpells[1]].manaCost))
         {
+            characterAnimator.Attack();
             manaComponent.SpendMana(spellOptions[visibleSpells[1]].manaCost);
             spellOptions[visibleSpells[1]].spellScript.Cast();
             spellCooldownImages[1].sprite = spellOptions[visibleSpells[1]].spellCooldown;
@@ -90,5 +94,11 @@ public class SpellManager : MonoBehaviour
             int idx = visibleSpells.IndexOf(spellNum);
             spellCooldownImages[idx].sprite = spellOptions[spellNum].spellSprite;
         }
+    }
+
+    public void Die()
+    {
+        controls.Combat.CastSpell.Disable();
+        controls.Combat.CycleSpells.Disable();
     }
 }

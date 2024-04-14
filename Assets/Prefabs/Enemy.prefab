@@ -420,14 +420,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 6827899091920177600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 743607f695324b844adc92f1bf2d90f4, type: 3}
+  m_Script: {fileID: 11500000, guid: ed71ff8c55501dc46bc225e2ec040213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentDirection: 1
-  sprites:
+  movementSprites:
   - direction: 1
     baseDirectionSprite: {fileID: -1214442824, guid: 4a6334416d3d5b442b4dacfc5d987da4, type: 3}
     controller: {fileID: 9100000, guid: 33bd4bee304c5f6458e15fb6d87d28ec, type: 2}
+  attackSprites: []
+  damageSprites: []
 --- !u!1 &7939012284655055678
 GameObject:
   m_ObjectHideFlags: 0

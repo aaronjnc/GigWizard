@@ -8,7 +8,7 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     private NavMeshAgent agent;
-    private MovementAnimator animator;
+    private CharacterAnimator animator;
     [SerializeField]
     private float enemySpeed;
     [SerializeField]
@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour
     void OnEnable()
     {
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponentInChildren<MovementAnimator>();
+        animator = GetComponentInChildren<CharacterAnimator>();
         agent.stoppingDistance = enemyMinDistance;
         agent.speed = enemySpeed;
         agent.updateRotation = false;

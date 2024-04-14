@@ -9,7 +9,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
 {
     private Rigidbody rb;
     private PlayerControls controls;
-    private MovementAnimator movementAnimator;
+    private CharacterAnimator movementAnimator;
     private Camera cam;
     [SerializeField]
     private float playerSpeed;
@@ -24,7 +24,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
     {
         cam = Camera.main;
         rb = GetComponent<Rigidbody>();
-        movementAnimator = GetComponentInChildren<MovementAnimator>();
+        movementAnimator = GetComponentInChildren<CharacterAnimator>();
         controls = new PlayerControls();
         controls.Movement.Move.performed += Move;
         controls.Movement.Move.canceled += StopMove;
@@ -56,6 +56,11 @@ public class PlayerMovement : Singleton<PlayerMovement>
         movementAnimator.StopMove();
         moveDir = Vector2.zero;
         rb.velocity = moveDir * playerSpeed;
+    }
+
+    public void Die()
+    {
+        controls.Movement.Move.Disable();
     }
 
     private void FixedUpdate()
