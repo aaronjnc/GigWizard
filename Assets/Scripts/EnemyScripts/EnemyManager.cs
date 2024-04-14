@@ -53,6 +53,7 @@ public class EnemyManager : Singleton<EnemyManager>
         activeEnemies.Remove(killedEnemy);
         if (activeEnemies.Count == 0)
         {
+            Flower.Instance.UpdateSprite(waves[currentWave].flowerSprite);
             currentWave++;
             NewWave();
         }
