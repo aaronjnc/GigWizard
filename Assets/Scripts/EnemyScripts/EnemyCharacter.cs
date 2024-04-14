@@ -12,6 +12,9 @@ public class EnemyCharacter : MonoBehaviour
     private EnemyMovement enemyMovement;
     private EnemyMelee enemyMelee;
 
+    [SerializeField]
+    private GameObject healthDrop;
+
     private void Start()
     {
         enemyMovement = GetComponent<EnemyMovement>();
@@ -36,6 +39,10 @@ public class EnemyCharacter : MonoBehaviour
     {
         if (newHealth <= 0)
         {
+            if (UnityEngine.Random.Range(0, 4) == 0)
+            {
+                Instantiate(healthDrop, transform.position, Quaternion.Euler(90, 0, 0));
+            }
             Destroy(gameObject);
         }
     }
