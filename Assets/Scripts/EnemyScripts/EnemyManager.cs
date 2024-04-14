@@ -44,6 +44,15 @@ public class EnemyManager : Singleton<EnemyManager>
         {
             int randEnemy = UnityEngine.Random.Range(0, wave.enemyPrefabs.Length - 1);
             GameObject newEnemy = Instantiate(wave.enemyPrefabs[randEnemy], GameManager.Instance.GetSpawnLocation(), Quaternion.identity);
+            EnemyCharacter enemyCharacter = newEnemy.GetComponent<EnemyCharacter>();
+            if (UnityEngine.Random.Range(0,2) == 0)
+            {
+                enemyCharacter.SetTarget(PlayerMovement.Instance.gameObject);
+            }
+            else
+            {
+                enemyCharacter.SetTarget(Flower.Instance.gameObject);
+            }
             activeEnemies.Add(newEnemy);
         }
     }

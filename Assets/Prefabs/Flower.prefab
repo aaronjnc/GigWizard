@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 1858470961449203966}
   - component: {fileID: 388978396290704155}
   m_Layer: 5
-  m_Name: Health5
+  m_Name: Health6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 8480069933869552821}
   - component: {fileID: 5938677767539601336}
   m_Layer: 5
-  m_Name: Health6
+  m_Name: Health4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 1781366871269817991}
   - component: {fileID: 2256283660648723926}
   m_Layer: 5
-  m_Name: Health4
+  m_Name: Health5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -468,9 +468,9 @@ MonoBehaviour:
   - {fileID: 7650579252492953951}
   - {fileID: 4403842347210036180}
   - {fileID: 7164266900415044891}
+  - {fileID: 5938677767539601336}
   - {fileID: 2256283660648723926}
   - {fileID: 388978396290704155}
-  - {fileID: 5938677767539601336}
   healthCapsules:
     EmptyCapsule: {fileID: 1296583297, guid: e2fe3b2a823696349a30c2fdca167ab3, type: 3}
     HalfCapsule: {fileID: -1562198567, guid: e2fe3b2a823696349a30c2fdca167ab3, type: 3}
@@ -506,12 +506,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 0.99999976, z: 0.99999976}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1857664520499813690}
-  - {fileID: 118743070780922710}
-  - {fileID: 6551856942569640656}
   - {fileID: 8008059843758947660}
   - {fileID: 1241652796144002506}
   - {fileID: 1479961522572056607}
+  - {fileID: 6551856942569640656}
+  - {fileID: 1857664520499813690}
+  - {fileID: 118743070780922710}
   m_Father: {fileID: 4368218680441607637}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

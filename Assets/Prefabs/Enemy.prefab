@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 4351151240685214518}
   - component: {fileID: 3375125260989865536}
   - component: {fileID: 349368302811076229}
+  - component: {fileID: 5731932930383170429}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -288,6 +289,21 @@ MonoBehaviour:
     EmptyCapsule: {fileID: 1296583297, guid: e2fe3b2a823696349a30c2fdca167ab3, type: 3}
     HalfCapsule: {fileID: -1562198567, guid: e2fe3b2a823696349a30c2fdca167ab3, type: 3}
     FullCapsule: {fileID: -791901378, guid: e2fe3b2a823696349a30c2fdca167ab3, type: 3}
+--- !u!114 &5731932930383170429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6707177654241947138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3f63dccc90cb949b6de39a3b857ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0.5
+  minAttackDistance: 2
+  attackTime: 1
 --- !u!1 &6827899091920177600
 GameObject:
   m_ObjectHideFlags: 0
