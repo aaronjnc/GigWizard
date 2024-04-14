@@ -52,7 +52,7 @@ public class Health : MonoBehaviour
 
     public void Heal(float amount)
     {
-        CurrentHealth = Mathf.Max(CurrentHealth + amount, maxHealth);
+        CurrentHealth = Mathf.Min(CurrentHealth + amount, maxHealth);
     }
 
     IEnumerator Cooldown()
