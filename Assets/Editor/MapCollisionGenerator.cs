@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.Tilemaps;
+using UnityEngine.AI;
 
 [CustomEditor(typeof(Tilemap))]
 public class MapCollisionGenerator : Editor
@@ -55,6 +56,8 @@ public class MapCollisionGenerator : Editor
                             GameObject newCube = new GameObject(x + " " + y + " " + z);
                             newCube.transform.position = spawnLoc;
                             newCube.AddComponent<BoxCollider>();
+                            NavMeshObstacle obstacle = newCube.AddComponent<NavMeshObstacle>();
+                            obstacle.carving = true;
                             newCube.transform.SetParent(parentObj.transform);
                         }
                     }
