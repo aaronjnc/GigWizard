@@ -57,7 +57,7 @@ public class Health : MonoBehaviour
             if (characterAnimator != null)
                 characterAnimator.Damage();
             flashScript.StartFlashCoroutine(new UnityEngine.InputSystem.InputAction.CallbackContext());
-            StartCoroutine(Cooldown());
+            StartCoroutine(Cooldown(damageCooldown));
         }
     }
 
@@ -71,10 +71,10 @@ public class Health : MonoBehaviour
         return bIsAlive;
     }
 
-    IEnumerator Cooldown()
+    public IEnumerator Cooldown(float cooldownTime)
     {
         bIsOnCooldown = true;
-        yield return new WaitForSeconds(damageCooldown);
+        yield return new WaitForSeconds(cooldownTime);
         bIsOnCooldown = false;
     }
 }
