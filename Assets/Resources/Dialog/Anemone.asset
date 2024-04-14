@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4a308dae7ffd048a8b0eb8d5ae4a02, type: 3}
   m_Name: Anemone
   m_EditorClassIdentifier: 
-  characterPhoto: {fileID: -720883275, guid: d84680d43a200a14aaf6ec766326cd68, type: 3}
+  characterPhoto: {fileID: 21300000, guid: 2e6a734eefb58c0429205c456845866f, type: 3}
   characterName: Anemone
