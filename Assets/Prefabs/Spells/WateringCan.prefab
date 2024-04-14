@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7118014333036404086}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.193, z: 3.56}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -120,4 +120,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animatorController: {fileID: 9100000, guid: 83195dd38957a5845ad5a11ce0a41efb, type: 2}
-  healthRestoration: 5
+  healthRestoration: 1

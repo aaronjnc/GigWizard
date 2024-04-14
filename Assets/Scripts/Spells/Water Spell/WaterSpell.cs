@@ -7,6 +7,6 @@ public class WaterSpell : Spell
     public override void Cast()
     {
         base.Cast();
-        Instantiate(spellObjectPrefab, Flower.Instance.transform.position, Quaternion.Euler(90, 0, 0));
+        Instantiate(spellObjectPrefab, Flower.Instance.transform.position + new Vector3(-0.15f, 0.1f, 0), Quaternion.Euler(90, 0, 0));
     }
 }
