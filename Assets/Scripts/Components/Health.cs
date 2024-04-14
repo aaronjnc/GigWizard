@@ -38,7 +38,8 @@ public class Health : MonoBehaviour
             if (OnHealthChange != null)
             {
                 OnHealthChange(currentHealth);
-                OnHealthChangeCallback();
+                if (OnHealthChangeCallback != null) 
+                    OnHealthChangeCallback();
             }
         }
     }
