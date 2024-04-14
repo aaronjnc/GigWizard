@@ -11,7 +11,7 @@ public class LightBall : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     private Rigidbody rb;
-    private Collider collider;
+    private Collider ballCollider;
 
     [SerializeField]
     RuntimeAnimatorController loopingController;
@@ -33,7 +33,7 @@ public class LightBall : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        collider = GetComponent<Collider>();
+        ballCollider = GetComponent<Collider>();
         rb.useGravity = false;
         rb.angularDrag = 0;
         rb.drag = 0;
@@ -58,7 +58,7 @@ public class LightBall : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         rb.velocity = Vector3.zero;
-        collider.enabled = false;
+        GetComponent<Collider>().enabled = false;
         animator.runtimeAnimatorController = explosionController;
         Health healthComponent = other.gameObject.GetComponent<Health>();
         if (healthComponent != null) {
@@ -77,7 +77,7 @@ public class LightBall : MonoBehaviour
     {
         yield return new WaitForSeconds(timeAlive);
         rb.velocity = Vector3.zero;
-        collider.enabled = false;
+        GetComponent<Collider>().enabled = false;
         animator.runtimeAnimatorController = explosionController;
         StartCoroutine(DestroyObject());
     }
