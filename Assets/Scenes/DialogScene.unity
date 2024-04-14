@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 946636728}
   - component: {fileID: 946636730}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Salita
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -482,7 +482,7 @@ MonoBehaviour:
   triggerState: 0
   sentences:
   - dialogueCharacter: {fileID: 11400000, guid: e22ddc15de7a35e4c9ab8a0a2210b43c, type: 2}
-    sentence: Hi there Flora
+    sentence: Hi there Salita
     skipDelayTime: 0
     sentenceSound: {fileID: 0}
     sentenceEvent:
@@ -667,7 +667,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1867364410, guid: f139235752fd3db41a26e49f481823d9, type: 3}
+  m_Sprite: {fileID: -129895502, guid: d559901caffa22745a2129543fba5cfc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
