@@ -28,7 +28,8 @@ public class PlayerCharacter : Singleton<PlayerCharacter>
         playerMovement = GetComponent<PlayerMovement>();
         spellManager = GetComponentInChildren<SpellManager>();
         playerMovement.SetupControls(controls);
-        spellManager.SetupControls(controls);
+        if (spellManager != null)
+            spellManager.SetupControls(controls);
         healthComponent = GetComponent<Health>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
