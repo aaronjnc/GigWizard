@@ -36,16 +36,20 @@ public class SpellManager : MonoBehaviour
     {
         characterAnimator = transform.parent.GetComponentInChildren<CharacterAnimator>();
         manaComponent = GetComponent<Mana>();
-        controls = new PlayerControls();
-        controls.Combat.CastSpell.started += CastSpell;
-        controls.Combat.CastSpell.Enable();
-        controls.Combat.CycleSpells.started += CycleSpells;
-        controls.Combat.CycleSpells.Enable();
         for (int i = 0; i < spellCooldownImages.Length; i++)
         {
             visibleSpells.Add(i);
             spellCooldownImages[i].sprite = spellOptions[i].spellSprite;
         }
+    }
+
+    public void SetupControls(PlayerControls newControls)
+    {
+        controls = newControls;
+        controls.Combat.CastSpell.started += CastSpell;
+        controls.Combat.CastSpell.Enable();
+        controls.Combat.CycleSpells.started += CycleSpells;
+        controls.Combat.CycleSpells.Enable();
     }
 
     void CastSpell(CallbackContext ctx)
@@ -94,11 +98,5 @@ public class SpellManager : MonoBehaviour
             int idx = visibleSpells.IndexOf(spellNum);
             spellCooldownImages[idx].sprite = spellOptions[spellNum].spellSprite;
         }
-    }
-
-    public void Die()
-    {
-        controls.Combat.CastSpell.Disable();
-        controls.Combat.CycleSpells.Disable();
     }
 }

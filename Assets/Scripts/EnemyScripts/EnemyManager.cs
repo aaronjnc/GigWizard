@@ -1,3 +1,4 @@
+using HeneGames.DialogueSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ public struct WaveInformation
     public int waveNumber;
     public int enemyCount;
     public GameObject[] enemyPrefabs;
-    public Sprite flowerSprite;
+    public DialogueManager waveEndDialogue;
 }
 
 public class EnemyManager : Singleton<EnemyManager>
@@ -25,10 +26,29 @@ public class EnemyManager : Singleton<EnemyManager>
 
     int currentWave = 0;
 
+    private List<SpawnPoint> openSpawnPoints = new List<SpawnPoint>();
+    private List<SpawnPoint> closedSpawnPoints = new List<SpawnPoint>();
+    private DialogueTrigger playerTrigger;
+        
+    [SerializeField]
+    private float spawnPointCloseTime;
+
     private void Start()
     {
+        openSpawnPoints.AddRange(FindObjectsOfType<SpawnPoint>());
         activeEnemies = new List<GameObject>();
         player = PlayerMovement.Instance.gameObject;
+        playerTrigger = player.GetComponent<DialogueTrigger>();
+    }
+
+    public void StartWaves()
+    {
+        NewWave();
+    }
+
+    public void NextWave()
+    {
+        currentWave++;
         NewWave();
     }
 
@@ -36,14 +56,14 @@ public class EnemyManager : Singleton<EnemyManager>
     {
         if (currentWave >= waves.Count)
         {
-            Debug.Log("You won the game!");
+            GameManager.Instance.WinGame();
             return;
         }
         WaveInformation wave = waves[currentWave];
         for (int i = 0; i < wave.enemyCount; i++)
         {
             int randEnemy = UnityEngine.Random.Range(0, wave.enemyPrefabs.Length - 1);
-            GameObject newEnemy = Instantiate(wave.enemyPrefabs[randEnemy], GameManager.Instance.GetSpawnLocation(), Quaternion.identity);
+            GameObject newEnemy = Instantiate(wave.enemyPrefabs[randEnemy], GetSpawnLocation(), Quaternion.identity);
             EnemyCharacter enemyCharacter = newEnemy.GetComponent<EnemyCharacter>();
             if (UnityEngine.Random.Range(0,2) == 0)
             {
@@ -62,9 +82,21 @@ public class EnemyManager : Singleton<EnemyManager>
         activeEnemies.Remove(killedEnemy);
         if (activeEnemies.Count == 0)
         {
-            Flower.Instance.UpdateSprite(waves[currentWave].flowerSprite);
-            currentWave++;
-            NewWave();
+            waves[currentWave].waveEndDialogue.TriggerDialogue(playerTrigger);
         }
+    }
+
+    public Vector3 GetSpawnLocation()
+    {
+        if (openSpawnPoints.Count == 0)
+        {
+            openSpawnPoints.AddRange(closedSpawnPoints.ToArray());
+            closedSpawnPoints.Clear();
+        }
+        int randSpawnPoint = UnityEngine.Random.Range(0, openSpawnPoints.Count - 1);
+        SpawnPoint spawnPoint = openSpawnPoints[randSpawnPoint];
+        openSpawnPoints.RemoveAt(randSpawnPoint);
+        closedSpawnPoints.Add(spawnPoint);
+        return spawnPoint.transform.position;
     }
 }
