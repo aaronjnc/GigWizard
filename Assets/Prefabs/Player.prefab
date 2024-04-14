@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 7604470600197133472}
   - component: {fileID: 5500375256415261076}
   - component: {fileID: 755964990927625910}
+  - component: {fileID: 4644261014300081031}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -466,6 +467,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathAnimation: {fileID: 9100000, guid: e384f7d21e6bf1e44bda6326b540a756, type: 2}
   deathSprite: {fileID: -1684920508, guid: fbc3ac6f3bda2b64689f7166681dfd87, type: 3}
+--- !u!114 &4644261014300081031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912576235362198063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da6c51194ab84042bc718fd8ead8aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDialogueEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 755964990927625910}
+        m_TargetAssemblyTypeName: PlayerCharacter, Assembly-CSharp
+        m_MethodName: DisableControls
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  nextSentenceDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  endDialogueEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 755964990927625910}
+        m_TargetAssemblyTypeName: PlayerCharacter, Assembly-CSharp
+        m_MethodName: EnableControls
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2207932042648269203
 GameObject:
   m_ObjectHideFlags: 0

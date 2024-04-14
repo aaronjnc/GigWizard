@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(HealthUI))]
 public class PlayerCharacter : Singleton<PlayerCharacter>
 {
+    private PlayerControls controls;
     private Health healthComponent;
     private PlayerMovement playerMovement;
     private SpellManager spellManager;
@@ -20,10 +21,14 @@ public class PlayerCharacter : Singleton<PlayerCharacter>
 
     private Animator animator;
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
+        controls = new PlayerControls();
         playerMovement = GetComponent<PlayerMovement>();
         spellManager = GetComponentInChildren<SpellManager>();
+        playerMovement.SetupControls(controls);
+        spellManager.SetupControls(controls);
         healthComponent = GetComponent<Health>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
@@ -34,17 +39,32 @@ public class PlayerCharacter : Singleton<PlayerCharacter>
     {
         if (healthRemaining <= 0)
         {
-            playerMovement.Die();
-            spellManager.Die();
+            DisableControls();
             animator.enabled = true;
             animator.runtimeAnimatorController = deathAnimation;
             StartCoroutine(DeathAnim());
         }
     }
 
+    public void DisableControls()
+    {
+        controls.Disable();
+    }
+
+    public void EnableControls()
+    {
+        controls.Enable();
+    }
+
     IEnumerator DeathAnim()
     {
         yield return new WaitForSeconds(deathAnimation.animationClips[0].length);
         spriteRenderer.sprite = deathSprite;
+        GameManager.Instance.LoseGame();
+    }
+
+    private void OnDestroy()
+    {
+        DisableControls();
     }
 }

@@ -25,7 +25,11 @@ public class PlayerMovement : Singleton<PlayerMovement>
         cam = Camera.main;
         rb = GetComponent<Rigidbody>();
         movementAnimator = GetComponentInChildren<CharacterAnimator>();
-        controls = new PlayerControls();
+    }
+
+    public void SetupControls(PlayerControls newControls)
+    {
+        controls = newControls;
         controls.Movement.Move.performed += Move;
         controls.Movement.Move.canceled += StopMove;
         controls.Movement.Move.Enable();
@@ -56,11 +60,6 @@ public class PlayerMovement : Singleton<PlayerMovement>
         movementAnimator.StopMove();
         moveDir = Vector2.zero;
         rb.velocity = moveDir * playerSpeed;
-    }
-
-    public void Die()
-    {
-        controls.Movement.Move.Disable();
     }
 
     private void FixedUpdate()
