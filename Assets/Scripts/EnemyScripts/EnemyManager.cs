@@ -54,6 +54,7 @@ public class EnemyManager : Singleton<EnemyManager>
 
     private void NewWave()
     {
+        PlayerCharacter.Instance.RegainMana();
         if (currentWave >= waves.Count)
         {
             GameManager.Instance.WinGame();

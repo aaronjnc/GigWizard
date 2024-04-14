@@ -380,6 +380,93 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &614478908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 614478910}
+  - component: {fileID: 614478909}
+  m_Layer: 0
+  m_Name: Wave2Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &614478909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614478908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b89b2c8d34df52d4e89cba040401d38b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  startDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  nextSentenceDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  endDialogueEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1491047897}
+        m_TargetAssemblyTypeName: EnemyManager, Assembly-CSharp
+        m_MethodName: NextWave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 263730006}
+        m_TargetAssemblyTypeName: Flower, Assembly-CSharp
+        m_MethodName: UpdateSprite
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: -1903307371, guid: 235858193afe13f429fd9447dc45044b, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  triggerState: 0
+  sentences:
+  - dialogueCharacter: {fileID: 11400000, guid: 53e4d3c9c3cacb74199bc19a4176c746, type: 2}
+    sentence: One more wave
+    skipDelayTime: 0
+    sentenceSound: {fileID: 0}
+    sentenceEvent:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!4 &614478910
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614478908}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.9470825, y: 4.3361974, z: -0.04532118}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,7 +1121,7 @@ MonoBehaviour:
         m_MethodName: UpdateSprite
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: -1903307371, guid: 235858193afe13f429fd9447dc45044b, type: 3}
+          m_ObjectArgument: {fileID: 733889867, guid: 235858193afe13f429fd9447dc45044b, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1050,6 +1137,93 @@ MonoBehaviour:
     sentenceEvent:
       m_PersistentCalls:
         m_Calls: []
+--- !u!1 &1935772960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1935772962}
+  - component: {fileID: 1935772961}
+  m_Layer: 0
+  m_Name: Wave3Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1935772961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935772960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b89b2c8d34df52d4e89cba040401d38b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  startDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  nextSentenceDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  endDialogueEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 263730006}
+        m_TargetAssemblyTypeName: Flower, Assembly-CSharp
+        m_MethodName: UpdateSprite
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: -1903307371, guid: 235858193afe13f429fd9447dc45044b, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1491047897}
+        m_TargetAssemblyTypeName: EnemyManager, Assembly-CSharp
+        m_MethodName: NextWave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  triggerState: 0
+  sentences:
+  - dialogueCharacter: {fileID: 11400000, guid: 53e4d3c9c3cacb74199bc19a4176c746, type: 2}
+    sentence: You have given me the confidence to continue on my journey.
+    skipDelayTime: 0
+    sentenceSound: {fileID: 0}
+    sentenceEvent:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!4 &1935772962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935772960}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.9470825, y: 4.3361974, z: -0.04532118}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2035235057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,12 +1359,36 @@ PrefabInstance:
       value: EnemyManager
       objectReference: {fileID: 0}
     - target: {fileID: 4649514509281892501, guid: 131d52db39839494f8b98713e5886c65, type: 3}
+      propertyPath: waves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4649514509281892501, guid: 131d52db39839494f8b98713e5886c65, type: 3}
       propertyPath: spawnPointCloseTime
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4649514509281892501, guid: 131d52db39839494f8b98713e5886c65, type: 3}
       propertyPath: waves.Array.data[0].enemyCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4649514509281892501, guid: 131d52db39839494f8b98713e5886c65, type: 3}
+      propertyPath: waves.Array.data[0].waveNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4649514509281892501, guid: 131d52db39839494f8b98713e5886c65, type: 3}
+      propertyPath: waves.Array.data[1].enemyCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4649514509281892501, guid: 131d52db39839494f8b98713e5886c65, type: 3}
+      propertyPath: waves.Array.data[1].waveNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4649514509281892501, guid: 131d52db39839494f8b98713e5886c65, type: 3}
+      propertyPath: waves.Array.data[2].enemyCount
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4649514509281892501, guid: 131d52db39839494f8b98713e5886c65, type: 3}
+      propertyPath: waves.Array.data[2].waveNumber
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4649514509281892501, guid: 131d52db39839494f8b98713e5886c65, type: 3}
       propertyPath: waves.Array.data[0].flowerSprite
@@ -1200,6 +1398,30 @@ PrefabInstance:
       propertyPath: waves.Array.data[0].waveEndDialogue
       value: 
       objectReference: {fileID: 1860787174}
+    - target: {fileID: 4649514509281892501, guid: 131d52db39839494f8b98713e5886c65, type: 3}
+      propertyPath: waves.Array.data[1].waveEndDialogue
+      value: 
+      objectReference: {fileID: 614478909}
+    - target: {fileID: 4649514509281892501, guid: 131d52db39839494f8b98713e5886c65, type: 3}
+      propertyPath: waves.Array.data[2].waveEndDialogue
+      value: 
+      objectReference: {fileID: 1935772961}
+    - target: {fileID: 4649514509281892501, guid: 131d52db39839494f8b98713e5886c65, type: 3}
+      propertyPath: waves.Array.data[1].enemyPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4649514509281892501, guid: 131d52db39839494f8b98713e5886c65, type: 3}
+      propertyPath: waves.Array.data[2].enemyPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4649514509281892501, guid: 131d52db39839494f8b98713e5886c65, type: 3}
+      propertyPath: waves.Array.data[1].enemyPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 6707177654241947138, guid: 244d2005aaeaac34ea5e7977c958097d, type: 3}
+    - target: {fileID: 4649514509281892501, guid: 131d52db39839494f8b98713e5886c65, type: 3}
+      propertyPath: waves.Array.data[2].enemyPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 6707177654241947138, guid: 244d2005aaeaac34ea5e7977c958097d, type: 3}
     - target: {fileID: 6927179353507978557, guid: 131d52db39839494f8b98713e5886c65, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.158094
@@ -1495,3 +1717,5 @@ SceneRoots:
   - {fileID: 1177415004}
   - {fileID: 1578757223}
   - {fileID: 1860787173}
+  - {fileID: 614478910}
+  - {fileID: 1935772962}
