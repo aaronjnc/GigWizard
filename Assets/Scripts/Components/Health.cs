@@ -19,6 +19,9 @@ public class Health : MonoBehaviour
     bool bIsOnCooldown = false;
 
     private SpriteFlash flashScript;
+    private CharacterAnimator characterAnimator;
+
+    private bool bIsAlive = true;
 
     private float CurrentHealth {
         get
@@ -37,6 +40,7 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         CurrentHealth = maxHealth;
+        characterAnimator = GetComponentInChildren<CharacterAnimator>();
         flashScript = GetComponent<SpriteFlash>();
     }
 
@@ -44,7 +48,14 @@ public class Health : MonoBehaviour
     {
         if (!bIsOnCooldown)
         {
-            CurrentHealth -= damage;
+            CurrentHealth = Mathf.Max(currentHealth - damage, 0);
+            if (currentHealth == 0)
+            {
+                bIsAlive = false;
+                return;
+            }
+            if (characterAnimator != null)
+                characterAnimator.Damage();
             flashScript.StartFlashCoroutine(new UnityEngine.InputSystem.InputAction.CallbackContext());
             StartCoroutine(Cooldown());
         }
@@ -52,7 +63,12 @@ public class Health : MonoBehaviour
 
     public void Heal(float amount)
     {
-        CurrentHealth = Mathf.Max(CurrentHealth + amount, maxHealth);
+        CurrentHealth = Mathf.Min(CurrentHealth + amount, maxHealth);
+    }
+
+    public bool GetIsAlive()
+    {
+        return bIsAlive;
     }
 
     IEnumerator Cooldown()

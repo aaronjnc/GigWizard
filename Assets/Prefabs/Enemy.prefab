@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 32
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 4351151240685214518}
   - component: {fileID: 3375125260989865536}
   - component: {fileID: 349368302811076229}
+  - component: {fileID: 5731932930383170429}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -288,6 +289,21 @@ MonoBehaviour:
     EmptyCapsule: {fileID: 1296583297, guid: e2fe3b2a823696349a30c2fdca167ab3, type: 3}
     HalfCapsule: {fileID: -1562198567, guid: e2fe3b2a823696349a30c2fdca167ab3, type: 3}
     FullCapsule: {fileID: -791901378, guid: e2fe3b2a823696349a30c2fdca167ab3, type: 3}
+--- !u!114 &5731932930383170429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6707177654241947138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3f63dccc90cb949b6de39a3b857ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0.5
+  minAttackDistance: 2
+  attackTime: 1
 --- !u!1 &6827899091920177600
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,14 +420,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 6827899091920177600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 743607f695324b844adc92f1bf2d90f4, type: 3}
+  m_Script: {fileID: 11500000, guid: ed71ff8c55501dc46bc225e2ec040213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentDirection: 1
-  sprites:
+  movementSprites:
   - direction: 1
     baseDirectionSprite: {fileID: -1214442824, guid: 4a6334416d3d5b442b4dacfc5d987da4, type: 3}
     controller: {fileID: 9100000, guid: 33bd4bee304c5f6458e15fb6d87d28ec, type: 2}
+  attackSprites: []
+  damageSprites: []
 --- !u!1 &7939012284655055678
 GameObject:
   m_ObjectHideFlags: 0

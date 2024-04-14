@@ -53,7 +53,7 @@ public class Mana : MonoBehaviour
 
     public void RegainMana(float amount)
     {
-        CurrentMana = Mathf.Max(currentMana + amount, maxMana);
+        CurrentMana = Mathf.Min(currentMana + amount, maxMana);
     }
 
     IEnumerator RecoverMana()

@@ -266,11 +266,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1319160585815323478}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 743607f695324b844adc92f1bf2d90f4, type: 3}
+  m_Script: {fileID: 11500000, guid: ed71ff8c55501dc46bc225e2ec040213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentDirection: 3
-  sprites:
+  movementSprites:
   - direction: 0
     baseDirectionSprite: {fileID: 127337446, guid: d84680d43a200a14aaf6ec766326cd68, type: 3}
     controller: {fileID: 9100000, guid: 5c6c72aaf1b492942ae22be61e8e32f3, type: 2}
@@ -283,6 +283,20 @@ MonoBehaviour:
   - direction: 3
     baseDirectionSprite: {fileID: -720883275, guid: d84680d43a200a14aaf6ec766326cd68, type: 3}
     controller: {fileID: 9100000, guid: 5d66d11d9ff651f46b0ad63c9c8bb5d4, type: 2}
+  attackSprites:
+  - direction: 1
+    baseDirectionSprite: {fileID: 1281875802, guid: fbc3ac6f3bda2b64689f7166681dfd87, type: 3}
+    controller: {fileID: 9100000, guid: c67fe16e9b232134cb906d32594d99c9, type: 2}
+  - direction: 0
+    baseDirectionSprite: {fileID: 1702384402, guid: fbc3ac6f3bda2b64689f7166681dfd87, type: 3}
+    controller: {fileID: 9100000, guid: 0ad7f0d5171aa0b4bb9ae0f69bc53dcd, type: 2}
+  damageSprites:
+  - direction: 0
+    baseDirectionSprite: {fileID: 1702384402, guid: fbc3ac6f3bda2b64689f7166681dfd87, type: 3}
+    controller: {fileID: 9100000, guid: 4fa461491231bd74e9c4942bd6044fd6, type: 2}
+  - direction: 1
+    baseDirectionSprite: {fileID: 1281875802, guid: fbc3ac6f3bda2b64689f7166681dfd87, type: 3}
+    controller: {fileID: 9100000, guid: 423937b80a0e86d4f9cc24fc926994a7, type: 2}
 --- !u!1 &1912576235362198063
 GameObject:
   m_ObjectHideFlags: 0

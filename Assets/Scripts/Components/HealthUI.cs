@@ -30,7 +30,7 @@ public class HealthUI : MonoBehaviour
     private void UpdateHealth(float newHealth)
     {
         int i = 0;
-        for (i = 0; i < (int)newHealth; i++)
+        for (i = 0; i < Mathf.FloorToInt(newHealth); i++)
         {
             healthImages[i].sprite = healthCapsules.FullCapsule;
         }

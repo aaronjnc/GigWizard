@@ -8,21 +8,20 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     private NavMeshAgent agent;
-    private MovementAnimator animator;
+    private CharacterAnimator animator;
     [SerializeField]
     private float enemySpeed;
     [SerializeField]
     private float enemyMinDistance;
     private GameObject enemyTarget;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponentInChildren<MovementAnimator>();
+        animator = GetComponentInChildren<CharacterAnimator>();
         agent.stoppingDistance = enemyMinDistance;
         agent.speed = enemySpeed;
         agent.updateRotation = false;
-        MoveTo(PlayerMovement.Instance.gameObject);
     }
 
     public void MoveTo(GameObject target)
