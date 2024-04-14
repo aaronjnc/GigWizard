@@ -1,12 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(SpriteRenderer))]
-[RequireComponent(typeof(Animator))]
-public class LightBall : MonoBehaviour
+public class PlantWave : MonoBehaviour
 {
     private Animator animator;
     private Rigidbody rb;
@@ -25,7 +21,10 @@ public class LightBall : MonoBehaviour
     private float damage;
 
     [SerializeField]
-    private float timeAlive;
+    private float blastRadius;
+
+    [SerializeField]
+    private LayerMask hitLayer;
 
     public void Awake()
     {
@@ -58,25 +57,44 @@ public class LightBall : MonoBehaviour
         rb.velocity = Vector3.zero;
         ballCollider.enabled = false;
         animator.runtimeAnimatorController = explosionController;
-        Health healthComponent = other.gameObject.GetComponent<Health>();
-        if (healthComponent != null) {
-            healthComponent.DealDamage(damage);
-        }
-        StartCoroutine(DestroyObject());
+        StartCoroutine(DestroyObject(other.gameObject));
     }
 
-    IEnumerator DestroyObject()
+    IEnumerator DestroyObject(GameObject hitObj)
     {
+        Explode(hitObj);
         yield return new WaitForSeconds(explosionController.animationClips[0].length);
         Destroy(gameObject);
     }
 
     IEnumerator TimeAlive()
     {
-        yield return new WaitForSeconds(timeAlive);
+        yield return new WaitForSeconds(loopingController.animationClips[0].length);
         rb.velocity = Vector3.zero;
         ballCollider.enabled = false;
         animator.runtimeAnimatorController = explosionController;
-        StartCoroutine(DestroyObject());
+        StartCoroutine(DestroyObject(null));
+    }
+
+    private void Explode(GameObject hitObj)
+    {
+        Health healthComponent;
+        if (hitObj != null)
+        {
+            healthComponent = hitObj.GetComponent<Health>();
+            if (healthComponent != null) {
+                healthComponent.DealDamage(1.0f);
+            }
+        }
+        Collider[] hitObjects = Physics.OverlapSphere(transform.position, blastRadius, hitLayer);
+        foreach (Collider col in hitObjects)
+        {
+            if (col.gameObject.Equals(hitObj))
+                continue;
+            healthComponent = col.gameObject.GetComponent<Health>();
+            if (healthComponent != null) {
+                healthComponent.DealDamage(0.5f);
+            }
+        }
     }
 }
