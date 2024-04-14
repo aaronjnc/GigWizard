@@ -27,7 +27,7 @@ public class EnemyMelee : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (bAttackReady && (targetObject.transform.position - transform.position).magnitude <= minAttackDistance)
+        if (bAttackReady && (targetObject.transform.position - transform.position).magnitude <= minAttackDistance && targetHealthComponent.GetIsAlive())
         {
             targetHealthComponent.DealDamage(damage);
             StartCoroutine(AttackDelay());

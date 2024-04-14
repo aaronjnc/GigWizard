@@ -30,4 +30,14 @@ public class GameManager : Singleton<GameManager>
         closedSpawnPoints.Add(spawnPoint);
         return spawnPoint.transform.position;
     }
+
+    public void WinGame()
+    {
+
+    }
+
+    public void LoseGame()
+    {
+
+    }
 }
