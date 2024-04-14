@@ -6,18 +6,12 @@ using UnityEngine.Audio;
 
 public class AudioManager : Singleton<AudioManager>
 {
-    public enum SpellTypes
-    {
-        Light,
-        Water,
-        Pink
-    }
-
     private Dictionary<SpellTypes, Sound> spellClipsToAudioClipDictionary;
 
     [SerializeField] private Sound _lightSpell;
     [SerializeField] private Sound _waterSpell;
-    [SerializeField] private Sound _pinkSpell;
+    [SerializeField] private Sound _plantSpell;
+    [SerializeField] private Sound _protectSpell;
     [SerializeField] private Sound[] _playerBattleSounds;
     [SerializeField] private Sound[] _enemyBattleSounds;
     [SerializeField] private AudioSource _audioSource;
@@ -28,14 +22,17 @@ public class AudioManager : Singleton<AudioManager>
     {
         switch (spellType)
         {
-            case SpellTypes.Light:
+            case SpellTypes.LightSpell:
                 _audioSource.PlayOneShot(_lightSpell.clip);
                 break;
-            case SpellTypes.Water:
+            case SpellTypes.WaterSpell:
                 _audioSource.PlayOneShot(_waterSpell.clip);
                 break;
-            case SpellTypes.Pink:
-                _audioSource.PlayOneShot(_pinkSpell.clip);
+            case SpellTypes.PlantSpell:
+                _audioSource.PlayOneShot(_plantSpell.clip);
+                break;
+            case SpellTypes.ProtectSpell:
+                _audioSource.PlayOneShot(_protectSpell.clip);
                 break;
         }
     }
@@ -55,9 +52,10 @@ public class AudioManager : Singleton<AudioManager>
     {
         spellClipsToAudioClipDictionary = new Dictionary<SpellTypes, Sound>
         {
-            { SpellTypes.Light, _lightSpell },
-            { SpellTypes.Water, _waterSpell },
-            { SpellTypes.Pink, _pinkSpell }
+            { SpellTypes.LightSpell, _lightSpell },
+            { SpellTypes.WaterSpell, _waterSpell },
+            { SpellTypes.PlantSpell, _plantSpell },
+            { SpellTypes.ProtectSpell, _plantSpell }
         };
     }
 

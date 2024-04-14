@@ -1051,19 +1051,19 @@ MonoBehaviour:
   - {fileID: 4022504945705041457}
   - {fileID: 5953247184888725107}
   spellOptions:
-  - spellName: Water Spell
+  - spellName: 1
     spellScript: {fileID: 284256049794814532}
     spellSprite: {fileID: -463400956, guid: e1004015f08d6f643889f2c533bc9ea8, type: 3}
     spellCooldown: {fileID: -745499754, guid: e1004015f08d6f643889f2c533bc9ea8, type: 3}
     manaCost: 1
     cooldownTime: 3
-  - spellName: Light Ball
+  - spellName: 0
     spellScript: {fileID: 8101953911532994052}
     spellSprite: {fileID: -586591269, guid: e1004015f08d6f643889f2c533bc9ea8, type: 3}
     spellCooldown: {fileID: 2103660499, guid: e1004015f08d6f643889f2c533bc9ea8, type: 3}
     manaCost: 0.5
     cooldownTime: 0.1
-  - spellName: Plant Spell
+  - spellName: 2
     spellScript: {fileID: 488413959254429098}
     spellSprite: {fileID: -713663155, guid: e1004015f08d6f643889f2c533bc9ea8, type: 3}
     spellCooldown: {fileID: -913258853, guid: e1004015f08d6f643889f2c533bc9ea8, type: 3}

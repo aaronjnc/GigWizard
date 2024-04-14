@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc04e39553c36141bae6e2155963bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthDrop: {fileID: 3368811115779279983, guid: ea5c8949e6440f649b5e8205bb5c978d, type: 3}
 --- !u!114 &349368302811076229
 MonoBehaviour:
   m_ObjectHideFlags: 0

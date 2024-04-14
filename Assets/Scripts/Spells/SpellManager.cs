@@ -8,12 +8,21 @@ using static UnityEngine.InputSystem.InputAction;
 [Serializable]
 public struct SpellOption
 {
-    public string spellName;
+    public SpellTypes spellName;
     public Spell spellScript;
     public Sprite spellSprite;
     public Sprite spellCooldown;
     public float manaCost;
     public float cooldownTime;
+}
+
+[Serializable]
+public enum SpellTypes
+{
+    LightSpell,
+    WaterSpell,
+    PlantSpell,
+    ProtectSpell
 }
 
 [RequireComponent(typeof(Mana))]
@@ -62,6 +71,7 @@ public class SpellManager : MonoBehaviour
         if (!spellCooldowns.Contains(visibleSpells[1]) && manaComponent.HasEnoughMana(spellOptions[visibleSpells[1]].manaCost))
         {
             characterAnimator.Attack();
+            AudioManager.Instance.PlaySpellSound(spellOptions[visibleSpells[1]].spellName);
             manaComponent.SpendMana(spellOptions[visibleSpells[1]].manaCost);
             spellOptions[visibleSpells[1]].spellScript.Cast();
             spellCooldownImages[1].sprite = spellOptions[visibleSpells[1]].spellCooldown;
