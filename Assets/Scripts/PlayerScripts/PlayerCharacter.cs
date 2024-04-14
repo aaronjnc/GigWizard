@@ -67,4 +67,9 @@ public class PlayerCharacter : Singleton<PlayerCharacter>
     {
         DisableControls();
     }
+
+    public void RegainMana()
+    {
+        spellManager.RegainMana();
+    }
 }

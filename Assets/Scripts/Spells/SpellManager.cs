@@ -52,6 +52,11 @@ public class SpellManager : MonoBehaviour
         controls.Combat.CycleSpells.Enable();
     }
 
+    public void RegainMana()
+    {
+        manaComponent.RegainMana(3);
+    }
+
     void CastSpell(CallbackContext ctx)
     {
         if (!spellCooldowns.Contains(visibleSpells[1]) && manaComponent.HasEnoughMana(spellOptions[visibleSpells[1]].manaCost))
