@@ -9,7 +9,9 @@ public class Health : MonoBehaviour
     private float maxHealth;
 
     public event OnHealthChangeDelegate OnHealthChange;
+    public event OnHealthChangeCallbackDelegate OnHealthChangeCallback;
     public delegate void OnHealthChangeDelegate(float newHealth);
+    public delegate void OnHealthChangeCallbackDelegate();
 
     private float currentHealth;
 
@@ -23,7 +25,8 @@ public class Health : MonoBehaviour
 
     private bool bIsAlive = true;
 
-    private float CurrentHealth {
+    private float CurrentHealth
+    {
         get
         {
             return currentHealth;
@@ -33,7 +36,10 @@ public class Health : MonoBehaviour
             if (currentHealth == value) return;
             currentHealth = value;
             if (OnHealthChange != null)
+            {
                 OnHealthChange(currentHealth);
+                OnHealthChangeCallback();
+            }
         }
     }
 
