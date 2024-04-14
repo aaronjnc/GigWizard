@@ -15,5 +15,8 @@ public class SpriteProcessor : AssetPostprocessor
         //textureImporter.spriteImportMode = SpriteImportMode.Multiple;
         textureImporter.spritePixelsPerUnit = 32;
         textureImporter.filterMode = FilterMode.Point;
+        var defaultPlatform = textureImporter.GetDefaultPlatformTextureSettings();
+        defaultPlatform.format = TextureImporterFormat.RGBA32;
+        textureImporter.SetPlatformTextureSettings(defaultPlatform);
     }
 }
