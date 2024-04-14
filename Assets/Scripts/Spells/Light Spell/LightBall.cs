@@ -8,7 +8,6 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Animator))]
 public class LightBall : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer;
     private Animator animator;
     private Rigidbody rb;
     private Collider ballCollider;
@@ -30,7 +29,6 @@ public class LightBall : MonoBehaviour
 
     public void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         ballCollider = GetComponent<Collider>();
@@ -58,7 +56,7 @@ public class LightBall : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         rb.velocity = Vector3.zero;
-        GetComponent<Collider>().enabled = false;
+        ballCollider.enabled = false;
         animator.runtimeAnimatorController = explosionController;
         Health healthComponent = other.gameObject.GetComponent<Health>();
         if (healthComponent != null) {
@@ -77,7 +75,7 @@ public class LightBall : MonoBehaviour
     {
         yield return new WaitForSeconds(timeAlive);
         rb.velocity = Vector3.zero;
-        GetComponent<Collider>().enabled = false;
+        ballCollider.enabled = false;
         animator.runtimeAnimatorController = explosionController;
         StartCoroutine(DestroyObject());
     }

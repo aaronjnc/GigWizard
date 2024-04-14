@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class PlantSpell : Spell
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Cast()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.Cast();
+        Instantiate(spellObjectPrefab, transform.position, Quaternion.Euler(90, 0, 0));
     }
 }
