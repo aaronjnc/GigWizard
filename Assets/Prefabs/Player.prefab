@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 5830913598861115782}
   - component: {fileID: 7604470600197133472}
   - component: {fileID: 5500375256415261076}
+  - component: {fileID: 755964990927625910}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -451,6 +452,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   damageCooldown: 0.5
+--- !u!114 &755964990927625910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912576235362198063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074a062c2a6ffed4b813c7abd42b0f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathAnimation: {fileID: 9100000, guid: e384f7d21e6bf1e44bda6326b540a756, type: 2}
+  deathSprite: {fileID: -1684920508, guid: fbc3ac6f3bda2b64689f7166681dfd87, type: 3}
 --- !u!1 &2207932042648269203
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,7 +924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 32
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
@@ -995,7 +1010,7 @@ MonoBehaviour:
     spellSprite: {fileID: -463400956, guid: e1004015f08d6f643889f2c533bc9ea8, type: 3}
     spellCooldown: {fileID: -745499754, guid: e1004015f08d6f643889f2c533bc9ea8, type: 3}
     manaCost: 1
-    cooldownTime: 1
+    cooldownTime: 3
   - spellName: Light Ball
     spellScript: {fileID: 8101953911532994052}
     spellSprite: {fileID: -586591269, guid: e1004015f08d6f643889f2c533bc9ea8, type: 3}
@@ -1033,7 +1048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba832ef5d242f9429fdb76ce423d171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellObjectPrefab: {fileID: 0}
+  spellObjectPrefab: {fileID: 7118014333036404086, guid: 795037f9816d5124c8ccb950b571d69d, type: 3}
 --- !u!114 &488413959254429098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1046,7 +1061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff9de0fdd3aba648adb3797bdc77810, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellObjectPrefab: {fileID: 0}
+  spellObjectPrefab: {fileID: 4287565308935125027, guid: 2c542f2cdd5f93e4099869e02f873401, type: 3}
 --- !u!114 &919930567689853076
 MonoBehaviour:
   m_ObjectHideFlags: 0
