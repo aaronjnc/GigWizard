@@ -18,6 +18,7 @@ public class EnemyCharacter : MonoBehaviour
         enemyMelee = GetComponent<EnemyMelee>();
         healthComponent = GetComponent<Health>();
         healthComponent.OnHealthChange += TakeDamage;
+        healthComponent.OnHealthChangeCallback += AudioManager.Instance.PlayEnemyBattleSound;
     }
 
     public void SetTarget(GameObject newTarget)
