@@ -139,6 +139,30 @@ PrefabInstance:
       propertyPath: spellObjectPrefab
       value: 
       objectReference: {fileID: 4287565308935125027, guid: 2c542f2cdd5f93e4099869e02f873401, type: 3}
+    - target: {fileID: 924247366788748971, guid: af4969ce659cace4882aef077c0805f2, type: 3}
+      propertyPath: spellCooldownImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 924247366788748971, guid: af4969ce659cace4882aef077c0805f2, type: 3}
+      propertyPath: spellCooldownImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 924247366788748971, guid: af4969ce659cace4882aef077c0805f2, type: 3}
+      propertyPath: spellCooldownImages.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070281285367903684, guid: af4969ce659cace4882aef077c0805f2, type: 3}
+      propertyPath: manaImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070281285367903684, guid: af4969ce659cace4882aef077c0805f2, type: 3}
+      propertyPath: manaImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070281285367903684, guid: af4969ce659cace4882aef077c0805f2, type: 3}
+      propertyPath: manaImages.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1912576235362198063, guid: af4969ce659cace4882aef077c0805f2, type: 3}
       propertyPath: m_Name
       value: Player
@@ -183,8 +207,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 4644261014300081031, guid: af4969ce659cace4882aef077c0805f2, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 5276244121308230352, guid: af4969ce659cace4882aef077c0805f2, type: 3}
+    - {fileID: 6736010700278753324, guid: af4969ce659cace4882aef077c0805f2, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1912576235362198063, guid: af4969ce659cace4882aef077c0805f2, type: 3}
