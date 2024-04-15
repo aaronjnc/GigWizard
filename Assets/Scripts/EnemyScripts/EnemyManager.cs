@@ -63,7 +63,7 @@ public class EnemyManager : Singleton<EnemyManager>
         WaveInformation wave = waves[currentWave];
         for (int i = 0; i < wave.enemyCount; i++)
         {
-            int randEnemy = UnityEngine.Random.Range(0, wave.enemyPrefabs.Length - 1);
+            int randEnemy = UnityEngine.Random.Range(0, wave.enemyPrefabs.Length);
             GameObject newEnemy = Instantiate(wave.enemyPrefabs[randEnemy], GetSpawnLocation(), Quaternion.identity);
             EnemyCharacter enemyCharacter = newEnemy.GetComponent<EnemyCharacter>();
             if (UnityEngine.Random.Range(0,2) == 0)
