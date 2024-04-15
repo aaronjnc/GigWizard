@@ -61,6 +61,7 @@ namespace HeneGames.DialogueSystem
 
         public void TriggerDialogue(DialogueTrigger _trigger)
         {
+            Debug.Log("trigger");
             //Trigger event inside DialogueTrigger component and store refenrece
             dialogueTrigger = _trigger;
             dialogueTrigger.startDialogueEvent.Invoke();
