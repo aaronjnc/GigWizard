@@ -34,6 +34,10 @@ public class PlayerCharacter : Singleton<PlayerCharacter>
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
         healthComponent.OnHealthChange += UpdateHealth;
+    }
+
+    private void Start()
+    {
         healthComponent.OnHealthChangeCallback += AudioManager.Instance.PlayPlayerBattleSound;
     }
 
