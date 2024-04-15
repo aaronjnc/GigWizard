@@ -430,7 +430,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1476809383, guid: 235858193afe13f429fd9447dc45044b, type: 3}
+  m_Sprite: {fileID: -1134559477, guid: 235858193afe13f429fd9447dc45044b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -454,6 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   familiar: {fileID: 4995881839055871110, guid: 508f1a567dd69784e9a53730d66544b4, type: 3}
+  currentQuest: 0
 --- !u!114 &4772468642119149045
 MonoBehaviour:
   m_ObjectHideFlags: 0
