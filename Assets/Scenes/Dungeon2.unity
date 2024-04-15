@@ -33213,6 +33213,10 @@ PrefabInstance:
       propertyPath: currentQuest
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4739940115614654936, guid: fd5cb952a192d9647b2a52afce017c05, type: 3}
+      propertyPath: spellOptions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6838887706615343657, guid: fd5cb952a192d9647b2a52afce017c05, type: 3}
       propertyPath: waves.Array.data[0].waveEndDialogue
       value: 

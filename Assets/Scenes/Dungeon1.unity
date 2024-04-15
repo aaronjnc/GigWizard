@@ -86202,6 +86202,34 @@ PrefabInstance:
       propertyPath: familiar
       value: 
       objectReference: {fileID: 1993681662}
+    - target: {fileID: 4739940115614654936, guid: fd5cb952a192d9647b2a52afce017c05, type: 3}
+      propertyPath: spellOptions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739940115614654936, guid: fd5cb952a192d9647b2a52afce017c05, type: 3}
+      propertyPath: spellOptions.Array.data[2].manaCost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739940115614654936, guid: fd5cb952a192d9647b2a52afce017c05, type: 3}
+      propertyPath: spellOptions.Array.data[2].spellName
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739940115614654936, guid: fd5cb952a192d9647b2a52afce017c05, type: 3}
+      propertyPath: spellOptions.Array.data[2].spellScript
+      value: 
+      objectReference: {fileID: 5457975828474969200}
+    - target: {fileID: 4739940115614654936, guid: fd5cb952a192d9647b2a52afce017c05, type: 3}
+      propertyPath: spellOptions.Array.data[2].spellSprite
+      value: 
+      objectReference: {fileID: 319936959, guid: 680b96b6c675b1a4cb2eb3c2b255b5d5, type: 3}
+    - target: {fileID: 4739940115614654936, guid: fd5cb952a192d9647b2a52afce017c05, type: 3}
+      propertyPath: spellOptions.Array.data[2].cooldownTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739940115614654936, guid: fd5cb952a192d9647b2a52afce017c05, type: 3}
+      propertyPath: spellOptions.Array.data[2].spellCooldown
+      value: 
+      objectReference: {fileID: 1832231969, guid: 680b96b6c675b1a4cb2eb3c2b255b5d5, type: 3}
     - target: {fileID: 6326079241890182777, guid: fd5cb952a192d9647b2a52afce017c05, type: 3}
       propertyPath: m_Size.x
       value: 4
@@ -86248,6 +86276,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b89b2c8d34df52d4e89cba040401d38b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5457975828474969200 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5715510943425802299, guid: fd5cb952a192d9647b2a52afce017c05, type: 3}
+  m_PrefabInstance: {fileID: 5457975828474969198}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fed072c760a07947901255ecfca5b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
