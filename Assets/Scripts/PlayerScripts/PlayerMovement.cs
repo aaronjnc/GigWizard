@@ -18,6 +18,10 @@ public class PlayerMovement : Singleton<PlayerMovement>
     [SerializeField]
     private float cameraMinDistance;
     private Vector2 moveDir;
+    [SerializeField]
+    [Tooltip("The lower this value, the more closely the camera will follow the player.")]
+    [Range(0f, 0.99f)]
+    private float camMoveSpeed;
 
     // Start is called before the first frame update
     protected override void Awake()
@@ -35,7 +39,8 @@ public class PlayerMovement : Singleton<PlayerMovement>
         controls.Movement.Move.Enable();
     }
 
-    void Move(CallbackContext ctx) {
+    void Move(CallbackContext ctx)
+    {
         moveDir = ctx.ReadValue<Vector2>();
         if (moveDir.x > 0)
         {
@@ -43,7 +48,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
         }
         else if (moveDir.x < 0)
         {
-             movementAnimator.Move(DirectionEnum.Left);
+            movementAnimator.Move(DirectionEnum.Left);
         }
         else if (moveDir.y > 0)
         {
@@ -56,7 +61,8 @@ public class PlayerMovement : Singleton<PlayerMovement>
         rb.velocity = new Vector3(moveDir.x, 0, moveDir.y) * playerSpeed;
     }
 
-    void StopMove(CallbackContext ctx) { 
+    void StopMove(CallbackContext ctx)
+    {
         movementAnimator.StopMove();
         moveDir = Vector2.zero;
         rb.velocity = moveDir * playerSpeed;
@@ -66,17 +72,22 @@ public class PlayerMovement : Singleton<PlayerMovement>
     {
         if (cam)
         {
-            Vector3 goalLoc = new Vector3(transform.position.x, cam.transform.position.y, transform.position.z);
-            Vector3 camDir = goalLoc - cam.transform.position;
-            if (camDir.magnitude < cameraMinDistance)
-            {
-                cam.transform.position = goalLoc;
-            }
-            else
-            {
-                camDir.Normalize();
-                cam.transform.position += camDir * cameraSpeed * Time.deltaTime;
-            }
+            Vector3 goalLoc = new Vector3(transform.position.x, 0f, transform.position.z);
+            cam.transform.position = new Vector3(
+                    cam.transform.position.x * camMoveSpeed,
+                    cam.transform.position.y,
+                    cam.transform.position.z * camMoveSpeed)
+                + ((1 - camMoveSpeed) * goalLoc);
+
+            // if (camDir.magnitude < cameraMinDistance)
+            // {
+            //     cam.transform.position = goalLoc;
+            // }
+            // else
+            // {
+            //     camDir.Normalize();
+            //     cam.transform.position += camDir * cameraSpeed * Time.deltaTime;
+            // }
         }
     }
 }

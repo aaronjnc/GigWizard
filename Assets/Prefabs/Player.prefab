@@ -404,6 +404,7 @@ MonoBehaviour:
   playerSpeed: 5
   cameraSpeed: 5
   cameraMinDistance: 0.05
+  camMoveSpeed: 0.9
 --- !u!114 &5830913598861115782
 MonoBehaviour:
   m_ObjectHideFlags: 0
