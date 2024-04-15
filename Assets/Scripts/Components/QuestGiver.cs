@@ -25,7 +25,7 @@ public class QuestGiver : MonoBehaviour
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        triggerCollider = GetComponent<Collider>();
+        triggerCollider = GetComponentInParent<Collider>();
         bool bQuestCompleted = GameManager.Instance.GetQuestCompleted(questEnum);
         if (bQuestCompleted)
         {

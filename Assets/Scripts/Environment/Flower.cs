@@ -16,9 +16,11 @@ public class Flower : Singleton<Flower>
 
     protected override void Awake()
     {
+        base.Awake();
         spriteRenderer = GetComponent<SpriteRenderer>();
         healthComponent = GetComponent<Health>();
         healthComponent.OnHealthChange += UpdateHealth;
+        familiar.SetActive(false);
     }
 
     public void UpdateSprite(Sprite newSprite)
@@ -37,8 +39,7 @@ public class Flower : Singleton<Flower>
     public GameObject SpawnFamiliar()
     {
         GameManager.Instance.CompleteQuest(currentQuest);
-        GameObject fam = Instantiate(familiar, transform.position, Quaternion.identity);
-        Destroy(gameObject);
-        return fam;
+        familiar.SetActive(true);
+        return familiar;
     }
 }
