@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -44416,6 +44416,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &520861211 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5899478926602465162, guid: fd5cb952a192d9647b2a52afce017c05, type: 3}
+  m_PrefabInstance: {fileID: 5457975828474969198}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &522376559
 GameObject:
   m_ObjectHideFlags: 0
@@ -81124,6 +81129,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Familiar
       objectReference: {fileID: 0}
+    - target: {fileID: 7988041637649313836, guid: 508f1a567dd69784e9a53730d66544b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 520861211}
+    - target: {fileID: 7988041637649313836, guid: 508f1a567dd69784e9a53730d66544b4, type: 3}
+      propertyPath: sentences.Array.data[0].sentenceSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ff186acf1131d41888c02e1bc225c3ff, type: 3}
     - target: {fileID: 7988041637649313836, guid: 508f1a567dd69784e9a53730d66544b4, type: 3}
       propertyPath: sentences.Array.data[0].dialogueCharacter
       value: 
