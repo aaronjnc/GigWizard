@@ -9,7 +9,9 @@ public class Health : MonoBehaviour
     private float maxHealth;
 
     public event OnHealthChangeDelegate OnHealthChange;
+    public event OnHealthChangeCallbackDelegate OnHealthChangeCallback;
     public delegate void OnHealthChangeDelegate(float newHealth);
+    public delegate void OnHealthChangeCallbackDelegate();
 
     private float currentHealth;
 
@@ -23,7 +25,8 @@ public class Health : MonoBehaviour
 
     private bool bIsAlive = true;
 
-    private float CurrentHealth {
+    private float CurrentHealth
+    {
         get
         {
             return currentHealth;
@@ -33,7 +36,11 @@ public class Health : MonoBehaviour
             if (currentHealth == value) return;
             currentHealth = value;
             if (OnHealthChange != null)
+            {
                 OnHealthChange(currentHealth);
+                if (OnHealthChangeCallback != null) 
+                    OnHealthChangeCallback();
+            }
         }
     }
 
@@ -57,7 +64,7 @@ public class Health : MonoBehaviour
             if (characterAnimator != null)
                 characterAnimator.Damage();
             flashScript.StartFlashCoroutine(new UnityEngine.InputSystem.InputAction.CallbackContext());
-            StartCoroutine(Cooldown());
+            StartCoroutine(Cooldown(damageCooldown));
         }
     }
 
@@ -71,10 +78,10 @@ public class Health : MonoBehaviour
         return bIsAlive;
     }
 
-    IEnumerator Cooldown()
+    public IEnumerator Cooldown(float cooldownTime)
     {
         bIsOnCooldown = true;
-        yield return new WaitForSeconds(damageCooldown);
+        yield return new WaitForSeconds(cooldownTime);
         bIsOnCooldown = false;
     }
 }

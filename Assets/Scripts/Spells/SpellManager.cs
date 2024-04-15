@@ -8,12 +8,21 @@ using static UnityEngine.InputSystem.InputAction;
 [Serializable]
 public struct SpellOption
 {
-    public string spellName;
+    public SpellTypes spellName;
     public Spell spellScript;
     public Sprite spellSprite;
     public Sprite spellCooldown;
     public float manaCost;
     public float cooldownTime;
+}
+
+[Serializable]
+public enum SpellTypes
+{
+    LightSpell,
+    WaterSpell,
+    PlantSpell,
+    ProtectSpell
 }
 
 [RequireComponent(typeof(Mana))]
@@ -36,11 +45,6 @@ public class SpellManager : MonoBehaviour
     {
         characterAnimator = transform.parent.GetComponentInChildren<CharacterAnimator>();
         manaComponent = GetComponent<Mana>();
-        controls = new PlayerControls();
-        controls.Combat.CastSpell.started += CastSpell;
-        controls.Combat.CastSpell.Enable();
-        controls.Combat.CycleSpells.started += CycleSpells;
-        controls.Combat.CycleSpells.Enable();
         for (int i = 0; i < spellCooldownImages.Length; i++)
         {
             visibleSpells.Add(i);
@@ -48,11 +52,26 @@ public class SpellManager : MonoBehaviour
         }
     }
 
+    public void SetupControls(PlayerControls newControls)
+    {
+        controls = newControls;
+        controls.Combat.CastSpell.started += CastSpell;
+        controls.Combat.CastSpell.Enable();
+        controls.Combat.CycleSpells.started += CycleSpells;
+        controls.Combat.CycleSpells.Enable();
+    }
+
+    public void RegainMana()
+    {
+        manaComponent.RegainMana(3);
+    }
+
     void CastSpell(CallbackContext ctx)
     {
         if (!spellCooldowns.Contains(visibleSpells[1]) && manaComponent.HasEnoughMana(spellOptions[visibleSpells[1]].manaCost))
         {
             characterAnimator.Attack();
+            AudioManager.Instance.PlaySpellSound(spellOptions[visibleSpells[1]].spellName);
             manaComponent.SpendMana(spellOptions[visibleSpells[1]].manaCost);
             spellOptions[visibleSpells[1]].spellScript.Cast();
             spellCooldownImages[1].sprite = spellOptions[visibleSpells[1]].spellCooldown;
@@ -94,11 +113,5 @@ public class SpellManager : MonoBehaviour
             int idx = visibleSpells.IndexOf(spellNum);
             spellCooldownImages[idx].sprite = spellOptions[spellNum].spellSprite;
         }
-    }
-
-    public void Die()
-    {
-        controls.Combat.CastSpell.Disable();
-        controls.Combat.CycleSpells.Disable();
     }
 }

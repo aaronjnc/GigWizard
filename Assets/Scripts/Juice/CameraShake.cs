@@ -1,8 +1,7 @@
-using UnityEditor.EditorTools;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
-public class CameraShake : MonoBehaviour
+public class CameraShake : Singleton<CameraShake>
 {
     private PlayerControls _controls;
 
@@ -33,6 +32,12 @@ public class CameraShake : MonoBehaviour
         trauma = Mathf.Clamp(trauma + t, 0f, 1f);
     }
 
+    // CHOI NOTE: hacky
+    public void AddTrauma()
+    {
+        trauma = Mathf.Clamp(trauma + 0.2f, 0f, 0.6f);
+    }
+
     // CHOI NOTE: For testing
     public void AddTrauma(CallbackContext ctx)
     {
@@ -46,14 +51,14 @@ public class CameraShake : MonoBehaviour
 
     private void ShakeCamera()
     {
-        Quaternion angleOffset = Quaternion.Euler(_lookAlongAxis * CalculateTrauma());
+        Quaternion angleOffset = Quaternion.Euler(_lookAlongAxis * CalculateTrauma() + new Vector3(90, 0, 0));
 
         float xOffset = _originalCameraPosition.x + Random.Range(-_maxShakeOffset, _maxShakeOffset) * trauma * trauma;
         float zOffset = _originalCameraPosition.z + Random.Range(-_maxShakeOffset, _maxShakeOffset) * trauma * trauma;
 
         Camera.main.transform.rotation = angleOffset;
 
-        Camera.main.transform.position = new Vector3(xOffset, 0f, zOffset);
+        Camera.main.transform.position = new Vector3(xOffset, _originalCameraPosition.y, zOffset);
     }
 
     // Start is called before the first frame update
@@ -69,6 +74,12 @@ public class CameraShake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Always update the camera's position relative to the player.
+        _originalCameraPosition = new Vector3(
+            transform.position.x,
+            _originalCameraPosition.y,
+            transform.position.z);
+
         if (trauma > 0f)
         {
             ShakeCamera();

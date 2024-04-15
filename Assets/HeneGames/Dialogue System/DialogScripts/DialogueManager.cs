@@ -59,10 +59,23 @@ namespace HeneGames.DialogueSystem
             }
         }
 
+        public void TriggerDialogue(DialogueTrigger _trigger)
+        {
+            //Trigger event inside DialogueTrigger component and store refenrece
+            dialogueTrigger = _trigger;
+            dialogueTrigger.startDialogueEvent.Invoke();
+
+            startDialogueEvent.Invoke();
+
+            //If component found start dialogue
+            DialogueUI.instance.StartDialogue(this);
+
+            dialogueIsOn = true;
+        }
+
         //Start dialogue by trigger
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Trigger entered");
             if (triggerState == TriggerState.Collision && !dialogueIsOn)
             {
                 //Try to find the "DialogueTrigger" component in the crashing collider
