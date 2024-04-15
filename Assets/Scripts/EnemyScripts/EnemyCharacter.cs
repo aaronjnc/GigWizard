@@ -22,6 +22,7 @@ public class EnemyCharacter : MonoBehaviour
         healthComponent = GetComponent<Health>();
         healthComponent.OnHealthChange += TakeDamage;
         healthComponent.OnHealthChangeCallback += AudioManager.Instance.PlayEnemyBattleSound;
+        healthComponent.OnHealthChangeCallback += CameraShake.Instance.AddTrauma;
     }
 
     public void SetTarget(GameObject newTarget)
