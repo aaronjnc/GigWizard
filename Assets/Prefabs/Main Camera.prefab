@@ -205,28 +205,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lightSpell:
     name: 
-    clip: {fileID: 8300000, guid: f5e943a564abb42bbb9bb005f30e0c50, type: 3}
+    clip: {fileID: 8300000, guid: a6250a899321e4b23b72d24b7d915773, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   _waterSpell:
     name: 
-    clip: {fileID: 8300000, guid: 50be13913956e435ca97b0ab3dfa43d1, type: 3}
+    clip: {fileID: 8300000, guid: d6a2568e4dc0e4778adf4dc6d7d63803, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   _plantSpell:
     name: 
-    clip: {fileID: 8300000, guid: f5e943a564abb42bbb9bb005f30e0c50, type: 3}
+    clip: {fileID: 8300000, guid: 3b43bb987e359413f90e53523eea1acb, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   _protectSpell:
     name: 
-    clip: {fileID: 8300000, guid: 50be13913956e435ca97b0ab3dfa43d1, type: 3}
+    clip: {fileID: 8300000, guid: 3f1ec62a95ae646fd9cf8fd71172a99b, type: 3}
     volume: 1
     pitch: 1
     loop: 0

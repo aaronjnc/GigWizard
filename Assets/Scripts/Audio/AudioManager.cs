@@ -25,7 +25,6 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] private Sound _badStuffMusic;
     [SerializeField] private Sound[] _playerBattleSounds;
     [SerializeField] private Sound[] _enemyBattleSounds;
-    [SerializeField] private Sound[] _musicSounds;
     [SerializeField] private AudioSource _sfxAudioSource;
     [SerializeField] private AudioSource _bgmAudioSource;
 
