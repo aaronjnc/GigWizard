@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f548b0fe9be79fa479cf6e3e550f1d57
+guid: aef941b60e937b544abcc4820ae62f04
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,70 +121,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: town 1 houses-Sheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 136
-        width: 112
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 80f6fb015075bef40bc6fef089056fee
-      internalID: 1685862269
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town 1 houses-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 113
-        y: 136
-        width: 86
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d94c5aab6c357b43aa796ab4636cd3f
-      internalID: -1453585159
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town 1 houses-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 8
-        width: 94
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 420a8aac9805b504d95ad88d972039cb
-      internalID: 120092205
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -195,10 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      town 1 houses-Sheet_0: 1685862269
-      town 1 houses-Sheet_1: -1453585159
-      town 1 houses-Sheet_2: 120092205
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
