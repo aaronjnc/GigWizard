@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5774434375666509558}
   - component: {fileID: 408104110886457027}
   - component: {fileID: 1724267924654329623}
+  - component: {fileID: 7162630119723749561}
   m_Layer: 0
   m_Name: Salita
   m_TagString: Untagged
@@ -78,7 +79,19 @@ MonoBehaviour:
       m_Calls: []
   endDialogueEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7162630119723749561}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Dungeon1
+          m_BoolArgument: 0
+        m_CallState: 2
   triggerState: 0
   sentences:
   - dialogueCharacter: {fileID: 11400000, guid: e22ddc15de7a35e4c9ab8a0a2210b43c, type: 2}
@@ -102,6 +115,18 @@ MonoBehaviour:
     sentenceEvent:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &7162630119723749561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5563233748192254241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef666b71b96e3e4dbdb382c1a555998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8104338658443745352
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,6 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5021956440862284496}
   - component: {fileID: 3780613375009137163}
+  - component: {fileID: 4069694658126181768}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -186,3 +212,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4069694658126181768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8104338658443745352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c74c808fae125674fa4f08861bcb935a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preQuestSprite: {fileID: -129895502, guid: d559901caffa22745a2129543fba5cfc, type: 3}
+  postQuestSprite: {fileID: -1369580896, guid: d559901caffa22745a2129543fba5cfc, type: 3}
+  familiar: {fileID: 0}
+  questEnum: 0

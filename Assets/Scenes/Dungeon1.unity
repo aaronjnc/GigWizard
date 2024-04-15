@@ -86214,6 +86214,18 @@ PrefabInstance:
       propertyPath: waves.Array.data[0].waveEndDialogue
       value: 
       objectReference: {fileID: 5457975828474969199}
+    - target: {fileID: 6838887706615343657, guid: fd5cb952a192d9647b2a52afce017c05, type: 3}
+      propertyPath: waves.Array.data[0].enemyPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6838887706615343657, guid: fd5cb952a192d9647b2a52afce017c05, type: 3}
+      propertyPath: waves.Array.data[0].enemyPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 6152437726413008527, guid: d2aa1fd34a110df4cb8210dfc3b935f8, type: 3}
+    - target: {fileID: 6838887706615343657, guid: fd5cb952a192d9647b2a52afce017c05, type: 3}
+      propertyPath: waves.Array.data[0].enemyPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 3507399005464493989, guid: 489bd16f5e1fe0845bfb7b931af81556, type: 3}
     - target: {fileID: 8640171439804558705, guid: fd5cb952a192d9647b2a52afce017c05, type: 3}
       propertyPath: m_Name
       value: CombatScenePrefab
