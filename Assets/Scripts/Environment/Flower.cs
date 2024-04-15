@@ -8,12 +8,19 @@ public class Flower : Singleton<Flower>
 {
     private SpriteRenderer spriteRenderer;
     private Health healthComponent;
+    [SerializeField]
+    private GameObject familiar;
+
+    [SerializeField]
+    private Quests currentQuest;
 
     protected override void Awake()
     {
+        base.Awake();
         spriteRenderer = GetComponent<SpriteRenderer>();
         healthComponent = GetComponent<Health>();
         healthComponent.OnHealthChange += UpdateHealth;
+        familiar.SetActive(false);
     }
 
     public void UpdateSprite(Sprite newSprite)
@@ -27,5 +34,12 @@ public class Flower : Singleton<Flower>
         {
             GameManager.Instance.LoseGame();
         }
+    }
+
+    public GameObject SpawnFamiliar()
+    {
+        GameManager.Instance.CompleteQuest(currentQuest);
+        familiar.SetActive(true);
+        return familiar;
     }
 }
