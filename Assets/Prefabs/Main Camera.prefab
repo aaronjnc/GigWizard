@@ -302,7 +302,6 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  _musicSounds: []
   _sfxAudioSource: {fileID: 7054993017872960180}
   _bgmAudioSource: {fileID: 5958275726863605217}
 --- !u!82 &5958275726863605217
@@ -319,7 +318,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

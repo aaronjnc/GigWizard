@@ -28,7 +28,12 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] private AudioSource _sfxAudioSource;
     [SerializeField] private AudioSource _bgmAudioSource;
 
-    public void PlayMusic(MusicTypes musicType)
+    public void PlayBadStuffMusic()
+    {
+        PlayMusic(MusicTypes.BadStuff);
+    }
+
+    private void PlayMusic(MusicTypes musicType)
     {
         _bgmAudioSource.clip = _musicClipsToAudioClipDictionary[musicType].clip;
         _bgmAudioSource.Play();
@@ -66,6 +71,8 @@ public class AudioManager : Singleton<AudioManager>
             { MusicTypes.WanderingMusic, _wanderingMusic },
             { MusicTypes.BadStuff, _badStuffMusic }
         };
+
+        PlayMusic(MusicTypes.WanderingMusic);
     }
 
     // Update is called once per frame
