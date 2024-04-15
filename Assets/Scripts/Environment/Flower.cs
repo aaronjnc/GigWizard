@@ -8,6 +8,11 @@ public class Flower : Singleton<Flower>
 {
     private SpriteRenderer spriteRenderer;
     private Health healthComponent;
+    [SerializeField]
+    private GameObject familiar;
+
+    [SerializeField]
+    private Quests currentQuest;
 
     protected override void Awake()
     {
@@ -27,5 +32,13 @@ public class Flower : Singleton<Flower>
         {
             GameManager.Instance.LoseGame();
         }
+    }
+
+    public GameObject SpawnFamiliar()
+    {
+        GameManager.Instance.CompleteQuest(currentQuest);
+        GameObject fam = Instantiate(familiar, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+        return fam;
     }
 }

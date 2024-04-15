@@ -83,6 +83,7 @@ public class EnemyManager : Singleton<EnemyManager>
         activeEnemies.Remove(killedEnemy);
         if (activeEnemies.Count == 0)
         {
+            PlayerCharacter.Instance.transform.position = new Vector3(Flower.Instance.transform.position.x, PlayerCharacter.Instance.transform.position.y, Flower.Instance.transform.position.z - 1.0f);
             waves[currentWave].waveEndDialogue.TriggerDialogue(playerTrigger);
         }
     }
