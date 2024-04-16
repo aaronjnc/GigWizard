@@ -16,6 +16,7 @@ public class GameManager : Singleton<GameManager>
 
     private Dictionary<Quests, bool> questsCompleted = new Dictionary<Quests, bool>();
 
+    [SerializeField]
     private GameObject gameOverScreen;
 
     protected override void Awake()
