@@ -16,6 +16,8 @@ public class GameManager : Singleton<GameManager>
 
     private Dictionary<Quests, bool> questsCompleted = new Dictionary<Quests, bool>();
 
+    private GameObject gameOverScreen;
+
     protected override void Awake()
     {
         base.Awake();
@@ -36,6 +38,7 @@ public class GameManager : Singleton<GameManager>
     {
         Time.timeScale = 0.0f;
         PlayerCharacter.Instance.DisableControls();
+        gameOverScreen.SetActive(true);
     }
 
     public void LoadScene(string sceneName)
@@ -58,5 +61,17 @@ public class GameManager : Singleton<GameManager>
     public bool GetQuestCompleted(Quests quest)
     {
         return questsCompleted[quest];
+    }
+
+    public void ReloadScene()
+    {
+        gameOverScreen.SetActive(false);
+        Time.timeScale = 1.0f;
+        LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
