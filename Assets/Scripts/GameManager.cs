@@ -29,7 +29,6 @@ public class GameManager : Singleton<GameManager>
 
     public void WinGame()
     {
-        //Time.timeScale = 0.0f;
         PlayerCharacter player = PlayerCharacter.Instance;
         player.DisableControls();
         StartCoroutine(WinDelay(player));
@@ -39,8 +38,7 @@ public class GameManager : Singleton<GameManager>
     {
         Time.timeScale = 0.0f;
         PlayerCharacter.Instance.DisableControls();
-        PlayerCharacter.Instance.DisableUI();
-        gameOverScreen.SetActive(true);
+        StartCoroutine(DeathDelay());
     }
 
     public void LoadScene(string sceneName)
@@ -53,6 +51,13 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(3);
         GameObject familiar = Flower.Instance.SpawnFamiliar();
         familiar.GetComponentInChildren<DialogueManager>().TriggerDialogue(player.gameObject.GetComponent<DialogueTrigger>());
+    }
+
+    IEnumerator DeathDelay()
+    {
+        yield return new WaitForSecondsRealtime(2);
+        PlayerCharacter.Instance.DisableUI();
+        gameOverScreen.SetActive(true);
     }
 
     public void CompleteQuest(Quests quest)

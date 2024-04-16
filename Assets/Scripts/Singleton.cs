@@ -28,10 +28,6 @@ public class Singleton<T> : MonoBehaviour where T : Component
     }
     protected virtual void Awake()
     {
-        if (_instance != null)
-        {
-            Destroy(gameObject);
-        }
         Application.quitting += () => applicationIsQuitting = true;
         _instance = this as T;
     }
