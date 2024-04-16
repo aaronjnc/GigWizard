@@ -469,6 +469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathAnimation: {fileID: 9100000, guid: e384f7d21e6bf1e44bda6326b540a756, type: 2}
   deathSprite: {fileID: -1684920508, guid: fbc3ac6f3bda2b64689f7166681dfd87, type: 3}
+  playerCanvas: {fileID: 5276244121308230352}
 --- !u!114 &4644261014300081031
 MonoBehaviour:
   m_ObjectHideFlags: 0

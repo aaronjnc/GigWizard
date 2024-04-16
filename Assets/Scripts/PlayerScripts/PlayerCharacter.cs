@@ -19,6 +19,9 @@ public class PlayerCharacter : Singleton<PlayerCharacter>
     [SerializeField]
     private Sprite deathSprite;
 
+    [SerializeField]
+    private GameObject playerCanvas;
+
     private Animator animator;
 
     protected override void Awake()
@@ -77,5 +80,10 @@ public class PlayerCharacter : Singleton<PlayerCharacter>
     public void RegainMana()
     {
         spellManager.RegainMana();
+    }
+
+    public void DisableUI()
+    {
+        playerCanvas.SetActive(false);
     }
 }

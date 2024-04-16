@@ -39,6 +39,7 @@ public class GameManager : Singleton<GameManager>
     {
         Time.timeScale = 0.0f;
         PlayerCharacter.Instance.DisableControls();
+        PlayerCharacter.Instance.DisableUI();
         gameOverScreen.SetActive(true);
     }
 

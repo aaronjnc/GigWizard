@@ -80,6 +80,10 @@ public class EnemyManager : Singleton<EnemyManager>
 
     public void RemoveEnemy(GameObject killedEnemy)
     {
+        if (activeEnemies == null || activeEnemies.Count == 0)
+        {
+            return;
+        }
         activeEnemies.Remove(killedEnemy);
         if (activeEnemies.Count == 0)
         {
